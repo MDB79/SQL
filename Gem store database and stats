@@ -1,0 +1,26 @@
+---Create a store database
+CREATE TABLE Inventory (id INTEGER PRIMARY KEY, name TEXT, location TEXT, quantity INTEGER, price NUMERIC);
+
+INSERT INTO Inventory Values (1, "Selenite", "Bin L", 7, 2.78); 
+INSERT INTO Inventory Values (2, "Clear Quartz", "Bin H", 9, 1.57); 
+INSERT INTO Inventory Values (3, "Smokey Quartz", "Bin O", 4, 2.47);
+INSERT INTO Inventory Values (4, "Desert Rose", "Bin Y", 4, 4.32); 
+INSERT INTO Inventory Values (5, "Amathyst", "Bin F", 5, 4.12); 
+INSERT INTO Inventory Values (6, "Black Tourmaline", "Bin T", 11, 2.46); 
+INSERT INTO Inventory Values (7, "Blue Apatite", "Bin E", 7, 5.77); 
+INSERT INTO Inventory Values (8, "Epidote", "Bin A", 4, 6.22); 
+INSERT INTO Inventory Values (9, "Howlite", "Bin D", 5, 4.15); 
+INSERT INTO Inventory Values (10, "Larimar", "Bin M", 2, 4.58); 
+INSERT INTO Inventory Values (11, "Jasper", "Bin C", 1, 3.26); 
+INSERT INTO Inventory Values (12, "Rose Quartz", "BIN R", 4, 2.47); 
+INSERT INTO Inventory Values (13, "Malachite", "Bin B", 1, 7.85); 
+INSERT INTO Inventory Values (14, "Moldavite", "Bin N", 1, 11.54); 
+INSERT INTO Inventory Values (15, "Moss Agate", "Bin S", 1, 5.44);
+
+---display the database ordered by price.
+SELECT * FROM Inventory order by (PRICE);
+--- display which items hold the majority of the inventory funds
+SELECT (name), sum(price) from Inventory group by (quantity);
+--- display items required to be re-ordered within the week or sooner
+SELECT * FROM Inventory where (quantity) <=5 
+order by (quantity);
